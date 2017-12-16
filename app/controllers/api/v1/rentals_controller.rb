@@ -1,4 +1,4 @@
-class RentalsController < ApplicationController
+class Api::V1::RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :update, :destroy]
 
   # GET /rentals
