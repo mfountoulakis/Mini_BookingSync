@@ -18,7 +18,7 @@ class Api::V1::BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      render json: @booking, status: :created, location: @booking
+      render json: @booking
     else
       render json: @booking.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class Api::V1::BookingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:data).require(:attributes).permit(:start, :end, :client_email, :price, :rental_id)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end
