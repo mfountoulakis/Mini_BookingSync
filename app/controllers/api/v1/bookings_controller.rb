@@ -46,6 +46,6 @@ class Api::V1::BookingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def booking_params
-      params.require(:booking).permit(:start, :end, :client_email, :price, :rental_id)
+      params.require(:data).require(:attributes).permit(:start, :end, :client_email, :price, :rental_id)
     end
 end
