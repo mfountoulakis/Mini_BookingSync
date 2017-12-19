@@ -4,7 +4,6 @@ class Api::V1::RentalsController < ApplicationController
   # GET /rentals
   def index
     @rentals = Rental.all
-
     render json: @rentals
   end
 
@@ -46,6 +45,6 @@ class Api::V1::RentalsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def rental_params
-      params.require(:rental).permit(:name, :daily_rate)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end

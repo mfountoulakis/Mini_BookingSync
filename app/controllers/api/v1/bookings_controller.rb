@@ -3,9 +3,13 @@ class Api::V1::BookingsController < ApplicationController
 
   # GET /bookings
   def index
-    @bookings = Booking.all
-
-    render json: @bookings
+    if params[:rental_id].present? 
+      @bookings = Booking.where(rental_id: params[:rental_id])
+      render json: @bookings
+    else
+      @bookings = Booking.all
+      render json: @bookings  
+    end
   end
 
   # GET /bookings/1
