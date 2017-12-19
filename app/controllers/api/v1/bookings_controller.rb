@@ -19,12 +19,12 @@ class Api::V1::BookingsController < ApplicationController
 
   # POST /bookings
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.create(booking_params)
 
-    if @booking.save
+    if @booking.valid?
       render json: @booking
     else
-      render json: @booking.errors, status: :unprocessable_entity
+      render json: @booking, status: 422, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
     end
   end
 
