@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20171216201058) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
-    t.string "client_email"
     t.float "price"
     t.integer "rental_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "client_email"
     t.index ["rental_id"], name: "index_bookings_on_rental_id"
   end
 

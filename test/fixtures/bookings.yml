@@ -3,13 +3,13 @@
 one:
   start: 2017-12-16 15:09:43
   end: 2017-12-16 15:09:43
-  client_email: MyString
+  clientEmail: MyString
   price: 1.5
   rental: one
 
 two:
   start: 2017-12-16 15:09:43
   end: 2017-12-16 15:09:43
-  client_email: MyString
+  clientEmail: MyString
   price: 1.5
   rental: two

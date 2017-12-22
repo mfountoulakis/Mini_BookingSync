@@ -24,7 +24,7 @@ class Api::V1::BookingsController < ApplicationController
     if @booking.valid?
       render json: @booking
     else
-      render json: @booking, status: 422, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
+      render json: @booking, status: 422, title: @booking.errors, adapter: :json_api, serializer: ActiveModel::Serializer::ErrorSerializer
     end
   end
 
